@@ -3,51 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IACWave - Em Construção</title>
-    <style>
-        body {
-            background-color: #f5f7fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        img {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 30px;
-        }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #1da1f2;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        a:hover {
-            background-color: #0d8ddb;
-        }
-    </style>
+    <title>IACWave — Estudo DevOps & Cloud</title>
+    <meta name="description" content="IACWave — recursos, artigos e trilhas de estudo sobre DevOps e Cloud.">
+    <link rel="canonical" href="https://iacwave.com.br/">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <img src="logo_iacwave.webp" alt="Logo IACWave Study Group">
-    <h1>Site em Construção</h1>
-    <p>Estamos trabalhando para trazer uma experiência incrível para você. Em breve, novidades!</p>
-    <a href="https://www.instagram.com/iacwave/" target="_blank">Siga-nos no Instagram</a>
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="/">IACWave</a>
+            <nav class="site-nav">
+                <a href="/">Home</a>
+                <a href="/blog/">Blog</a>
+                <a href="/about.html">Sobre</a>
+                <a href="/recursos.html">Recursos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main">
+        <section class="hero">
+            <h1>Aprenda DevOps e Cloud com foco prático</h1>
+            <p>Guias, artigos e recursos para quem estuda infraestrutura como código, CI/CD e práticas modernas.</p>
+            <p class="cta">
+                <a class="btn" href="/blog/">Ver artigos</a>
+                <a class="btn btn-outline" href="/about.html">Sobre</a>
+            </p>
+        </section>
+
+        <section class="latest">
+            <h2>Artigos recentes</h2>
+            <ul class="posts">
+                <li>
+                    <a href="/blog/o-que-e-devops.html">O que é DevOps? Entenda de forma simples (para iniciantes)</a>
+                    <p class="excerpt">Uma explicação direta sobre DevOps, por que existe e as ferramentas mais usadas.</p>
+                </li>
+                <li>
+                    <a href="/blog/setup-ideal-devops-cloud-2026.html">Setup ideal para estudar DevOps e Cloud em casa (2026)</a>
+                    <p class="excerpt">Dicas práticas de notebook, monitor, periféricos e organização com foco em custo-benefício.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 IACWave — iacwave.com.br</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
