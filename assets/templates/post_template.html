@@ -8,19 +8,33 @@
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:image" content="{{ image }}">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{ date }}">
+  <meta property="article:author" content="{{ author }}">
+  <link rel="canonical" href="{{ url }}">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-  <header class="site-header"><div class="container"><a class="brand" href="/">IACWave</a><nav class="site-nav"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/about.html">Sobre</a><a href="/recursos.html">Recursos</a></nav></div></header>
+  <header class="site-header"><div class="container"><a class="brand" href="/">
+    <img src="/logo_iacwave.png" alt="IACWave Logo">
+    IACWave
+  </a><nav class="site-nav"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/about.html">Sobre</a><a href="/recursos.html">Recursos</a></nav></div></header>
   <article class="article container">
     <h1>{{ title }}</h1>
-    <p class="meta">Publicado em {{ date }}</p>
+    <div class="meta">
+      <span class="meta-item">📅 <span>{{ date }}</span></span>
+      <span class="meta-item">⏱️ <span class="reading-time">{{ readingTime }} min</span></span>
+      <span class="meta-item">✍️ <span>{{ author }}</span></span>
+    </div>
+    {{ tags }}
     <div class="post-content">
       {{ content }}
     </div>
-    <p><a href="/blog/">Voltar para o blog</a></p>
+    <div class="article-footer">
+      <p>Gostou deste artigo? Compartilhe e volte para o <a href="/blog/">Blog</a>.</p>
+    </div>
   </article>
-  <footer class="site-footer"><div class="container">&copy; 2026 IACWave</div></footer>
+  <footer class="site-footer"><div class="container">&copy; 2026 IACWave — iacwave.com.br</div></footer>
   <script src="/assets/js/main.js"></script>
   <script type="application/ld+json">
     {{ jsonld }}
