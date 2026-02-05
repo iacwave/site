@@ -104,7 +104,10 @@ def main():
     content_html = md_to_html(content_md)
     today = date.today().isoformat()
 
-    tpl_path = '../assets/templates/post_template.html'
+    # resolve template path relative to this script
+    import os
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+    tpl_path = os.path.join(script_dir, '..', 'assets', 'templates', 'post_template.html')
 
     # derive URL and image
     # output path may be like blog/slug.html -> construct canonical
