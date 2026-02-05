@@ -16,7 +16,7 @@ body{font-family:'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue',
 .site-header{border-bottom:1px solid var(--border);background:linear-gradient(135deg,#fff 0%, var(--surface) 100%);box-shadow:0 1px 3px rgba(0,0,0,0.05)}
 .site-header .container{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
 .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.25rem;display:flex;align-items:center;gap:12px}
-.brand img{height:48px;width:auto;padding:6px;background:#000;border-radius:6px}
+.brand img{height:64px;width:auto}
 .site-nav a{margin-left:20px;color:var(--text);text-decoration:none;font-weight:500;transition:color 0.2s}
 .site-nav a:hover{color:var(--accent)}
 .main{padding:40px 20px}
