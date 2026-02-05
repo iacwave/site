@@ -10,7 +10,9 @@ unordered lists (- ), paragraphs, and links [text](url).
 """
 import sys
 import re
+import json
 from datetime import date
+import argparse
 
 
 def md_to_html(md_text):
@@ -72,12 +74,15 @@ def render_template(template_path, title, description, content_html, date_str):
 
 
 def main():
-    if len(sys.argv) < 3:
-        print('Usage: md_to_html.py input.md output.html')
-        sys.exit(2)
+    parser = argparse.ArgumentParser(description='Convert simple markdown post to HTML using template')
+    parser.add_argument('input', help='input markdown file')
+    parser.add_argument('output', help='output html file')
+    parser.add_argument('--base-url', default='https://iacwave.com.br', help='Site base URL (used for canonical and image links)')
+    args = parser.parse_args()
 
-    in_md = sys.argv[1]
-    out_html = sys.argv[2]
+    in_md = args.input
+    out_html = args.output
+    base_url = args.base_url.rstrip('/')
 
     with open(in_md, 'r', encoding='utf-8') as f:
         md = f.read()
@@ -100,7 +105,33 @@ def main():
     today = date.today().isoformat()
 
     tpl_path = '../assets/templates/post_template.html'
+
+    # derive URL and image
+    # output path may be like blog/slug.html -> construct canonical
+    out_rel = '/' + out_html.replace('../', '').lstrip('/')
+    canonical = f"{base_url}{out_rel if out_rel.startswith('/') else '/' + out_rel}"
+    # prefer logo_iacwave.png if exists
+    image_path = f"{base_url}/logo_iacwave.png"
+
+    jsonld_obj = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "description": description,
+        "image": image_path,
+        "author": {"@type": "Person", "name": "IACWave"},
+        "publisher": {"@type": "Organization", "name": "IACWave", "logo": {"@type": "ImageObject", "url": image_path}},
+        "datePublished": today,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": canonical}
+    }
+
+    jsonld = json.dumps(jsonld_obj, ensure_ascii=False)
+
     html = render_template(tpl_path, title, description, content_html, today)
+    # replace additional placeholders
+    html = html.replace('{{ image }}', image_path)
+    html = html.replace('{{ jsonld }}', jsonld)
+    html = html.replace('{{ url }}', canonical)
 
     with open(out_html, 'w', encoding='utf-8') as f:
         f.write(html)
