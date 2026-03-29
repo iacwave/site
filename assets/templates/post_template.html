@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }} — IACWave</title>
+  <meta name="description" content="{{ description }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{ date }}">
+  <meta property="article:author" content="{{ author }}">
+  <link rel="canonical" href="{{ url }}">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="container"><a class="brand" href="/">
+    <img src="/logo_iacwave1.png" alt="IACWave Logo">
+    IACWave
+  </a><nav class="site-nav"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/about.html">Sobre</a><a href="/recursos.html">Recursos</a></nav></div></header>
+  <article class="article container">
+    <h1>{{ title }}</h1>
+    <div class="meta">
+      <span class="meta-item">📅 <span>{{ date }}</span></span>
+      <span class="meta-item">⏱️ <span class="reading-time">{{ readingTime }} min</span></span>
+      <span class="meta-item">✍️ <span>{{ author }}</span></span>
+    </div>
+    {{ tags }}
+    <div class="post-content">
+      {{ content }}
+    </div>
+    <div class="article-footer">
+      <p>Gostou deste artigo? Compartilhe e volte para o <a href="/blog/">Blog</a>.</p>
+    </div>
+  </article>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/iacwave/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+        <a href="https://x.com/iacwave/" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
+        <a href="https://www.instagram.com/iacwave/" target="_blank" rel="noopener" title="Instagram">📷</a>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+      </div>
+      <p>&copy; 2026 IACWave — iacwave.com.br</p>
+    </div>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+  <script type="application/ld+json">
+    {{ jsonld }}
+  </script>
+</body>
+</html>
